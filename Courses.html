@@ -106,7 +106,9 @@
         </h1>
       </div>
     </div>
-    <section class="mx-4 flex flex-col justify-start items-start p-4">
+    <section
+      class="px-2 sm:mx-4 flex flex-col justify-start items-start sm:p-4"
+    >
       <div class="flex flex-col relative md:flex-row gap-2 h-full">
         <!-- Filter Bar -->
         <div
@@ -125,13 +127,15 @@
                   <select
                     x-model="selectedLanguage"
                     @change="courseTypes = selectedLanguage === 'english' ? ['General', 'ESP', 'TCO', 'IELTS'] : ['General']"
-                    class="custom-select w-full appearance-none px-4 py-2 rounded-lg bg-white bg-opacity-20 text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+                    class="custom-select w-full appearance-none px-4 py-2 rounded-lg bg-white bg-opacity-20 text-gray-100 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
                   >
-                    <option value="" class="text-white" selected>
+                    <option value="" class="text-gray-500" selected>
                       Choose a language
                     </option>
-                    <option value="english">English</option>
-                    <option value="french">French</option>
+                    <option class="text-gray-500" value="english">
+                      English
+                    </option>
+                    <option class="text-gray-500" value="french">French</option>
                   </select>
                   <div
                     class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none"
@@ -161,14 +165,15 @@
                 <div class="relative">
                   <select
                     x-bind:disabled="!selectedLanguage"
-                    class="custom-select w-full px-4 py-2 rounded-lg bg-white bg-opacity-20 text-black focus:outline-none focus:ring-2 appearance-none focus:ring-white focus:ring-offset-2"
+                    class="custom-select w-full px-4 py-2 rounded-lg bg-white bg-opacity-20 text-gray-100 focus:outline-none focus:ring-2 appearance-none focus:ring-white focus:ring-offset-2"
                   >
-                    <option value="" class="text-white" selected>
+                    <option value="" class="text-gray-500" selected>
                       Choose a course type
                     </option>
                     <template x-for="type in courseTypes" :key="type">
                       <option
                         x-text="type"
+                        class="text-gray-500"
                         :value="type.toLowerCase()"
                       ></option>
                     </template>
@@ -200,14 +205,18 @@
                 >
                 <div class="relative">
                   <select
-                    class="custom-select w-full px-4 py-2 rounded-lg bg-white appearance-none bg-opacity-20 text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+                    class="custom-select w-full px-4 py-2 rounded-lg bg-white appearance-none bg-opacity-20 text-gray-100 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
                   >
-                    <option value="" class="text-white" selected>
+                    <option class="text-gray-500" value="" selected>
                       Choose an age interval
                     </option>
-                    <option value="5-12">5-12 Years</option>
-                    <option value="13-18">13-18 Years</option>
-                    <option value="19+">19+ Years</option>
+                    <option class="text-gray-500" value="5-12">
+                      5-12 Years
+                    </option>
+                    <option class="text-gray-500" value="13-18">
+                      13-18 Years
+                    </option>
+                    <option class="text-gray-500" value="19+">19+ Years</option>
                   </select>
                   <div
                     class="absolute inset-y-0 right-0 appearance-none flex items-center pr-2 pointer-events-none"
