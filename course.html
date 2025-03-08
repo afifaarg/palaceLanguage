@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Course Details - Palace Languages</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/skilline.css" />
+    <style>
+      .primary-bg {
+        background-color: #9942ab; /* Indigo */
+      }
+      .primary-text {
+        color: #9942ab;
+      }
+      .primary-border {
+        border-color: #9942ab;
+      }
+      .hover\:primary-bg:hover {
+        background-color: 9942ab; /* Darker Indigo */
+      }
+      .gradient-bg {
+        background: linear-gradient(135deg, #9942ab, #818cf8);
+      }
+    </style>
+  </head>
+  <body class="antialiased bg-gray-100">
+    <!-- Navigation Bar -->
+    <div
+      x-data="{ open: false, scrolled: false }"
+      class="absolute w-full text-white top-0 z-20"
+    >
+      <div
+        :class="{ 'bg-white shadow-md': scrolled, 'bg-transparent': !scrolled }"
+        class="flex flex-col max-w-screen-xl px-8 mx-auto md:items-center md:justify-between md:flex-row transition-all duration-300"
+      >
+        <div class="flex flex-row items-center justify-between py-4">
+          <div>
+            <img src="./img/logo-footer.png" height="150" width="150" />
+          </div>
+          <button
+            class="rounded-lg md:hidden focus:outline-none focus:shadow-outline"
+            @click="open = !open"
+          >
+            <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+              <path
+                x-show="!open"
+                fill-rule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+                clip-rule="evenodd"
+              ></path>
+              <path
+                x-show="open"
+                fill-rule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <nav
+          :class="{ 'h-auto': open, 'h-0': !open }"
+          class="flex flex-col flex-grow text-white md:items-center pb-4 md:pb-0 md:flex md:justify-end md:flex-row origin-top duration-300 transition-all overflow-hidden"
+        >
+          <a
+            class="px-4 py-2 mt-2 text-sm bg-transparent rounded-lg md:mt-8 md:ml-4 hover:text-primary focus:outline-none focus:shadow-outline"
+            href="./index.html"
+            >Home</a
+          >
+          <a
+            class="px-4 py-2 mt-2 text-sm bg-transparent rounded-lg md:mt-8 md:ml-4 hover:text-primary focus:outline-none focus:shadow-outline"
+            href="./Courses.html"
+            >Courses</a
+          >
+          <a
+            class="px-4 py-2 mt-2 text-sm bg-transparent rounded-lg md:mt-8 md:ml-4 hover:text-primary focus:outline-none focus:shadow-outline"
+            href="#"
+            >About Us</a
+          >
+          <button
+            class="px-10 py-3 mt-2 text-sm text-center bg-primary text-white rounded-full md:mt-8 md:ml-4 hover:primary-bg"
+            href="#"
+          >
+            Ask For Opinion
+          </button>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Banner Section -->
+    <div
+      class="relative h-64 md:h-96 bg-cover bg-center"
+      style="background-image: url('./img/Rectangle\ 21.png')"
+    >
+      <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+      <div class="relative z-10 flex items-center justify-center h-full">
+        <h1 class="text-4xl md:text-6xl font-bold text-white text-center">
+          English Course
+        </h1>
+      </div>
+    </div>
+    <!-- Course Details -->
+    <div class="container mx-auto px-4 py-8">
+      <div class="bg-white p-8 rounded-lg shadow-lg">
+        <ul class="flex items-center py-4">
+          <li class="inline-flex items-center">
+            <a href="./index.html" class="text-gray-600 hover:text-blue-500">
+              <svg
+                class="w-5 h-auto fill-current mx-2 text-gray-400"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="#000000"
+              >
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path
+                  d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z"
+                />
+              </svg>
+            </a>
+
+            <span class="mx-4 h-auto text-gray-400 font-medium">/</span>
+          </li>
+
+          <li class="inline-flex items-center">
+            <a href="./Courses.html" class="text-gray-600 hover:text-blue-500">
+              Courses
+            </a>
+
+            <span class="mx-4 h-auto text-gray-400 font-medium">/</span>
+          </li>
+
+          <li class="inline-flex items-center">
+            <a
+              href="./course.html"
+              class="text-gray-600 text-primary underline"
+            >
+              English Course
+            </a>
+          </li>
+        </ul>
+        <!-- Tags -->
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span
+            class="bg-indigo-100 text-primary px-3 py-1 rounded-full text-sm flex items-center gap-2"
+          >
+            <i class="fas fa-user text-sm"></i>
+            19+ Years
+          </span>
+          <span
+            class="bg-indigo-100 text-primary px-3 py-1 rounded-full text-sm flex items-center gap-2"
+          >
+            <i class="fas fa-book text-sm"></i>
+            IELTS
+          </span>
+          <span
+            class="bg-indigo-100 text-primary px-3 py-1 rounded-full text-sm flex items-center gap-2"
+          >
+            <i class="fas fa-globe text-sm"></i>
+            English
+          </span>
+        </div>
+
+        <!-- Course Description -->
+        <div class="space-y-6">
+          <h2 class="text-3xl font-bold text-gray-800">Course Overview</h2>
+          <p class="text-gray-600 leading-relaxed">
+            This comprehensive course is meticulously designed to help you
+            prepare for the IELTS exam, ensuring you achieve your desired score.
+            It covers all four sections of the test: Listening, Reading,
+            Writing, and Speaking. With expert guidance, tailored practice
+            tests, and personalized feedback, you'll gain the confidence and
+            skills needed to excel in the exam.
+          </p>
+          <p class="text-gray-600 leading-relaxed mt-4">
+            Whether you're aiming for academic or general training, this course
+            is suitable for all IELTS candidates. Our experienced instructors
+            will provide you with proven strategies, tips, and techniques to
+            tackle each section effectively. By the end of the course, you'll be
+            fully prepared to face the exam with confidence.
+          </p>
+
+          <h3 class="text-xl font-semibold text-gray-800 mt-6">
+            What You'll Learn:
+          </h3>
+          <ul class="list-disc list-inside text-gray-600 space-y-2 mt-4">
+            <li>
+              <strong>Listening:</strong> Master the art of understanding
+              accents, identifying key information, and answering questions
+              accurately under time pressure.
+            </li>
+            <li>
+              <strong>Reading:</strong> Develop skimming and scanning techniques
+              to quickly locate answers, improve comprehension, and handle
+              different question types.
+            </li>
+            <li>
+              <strong>Writing:</strong> Learn how to structure essays and
+              reports, use advanced vocabulary, and express ideas clearly and
+              coherently.
+            </li>
+            <li>
+              <strong>Speaking:</strong> Enhance your fluency, pronunciation,
+              and ability to discuss a wide range of topics confidently with
+              examiners.
+            </li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-gray-800 mt-6">
+            Who Should Enroll?
+          </h3>
+          <p class="text-gray-600 leading-relaxed mt-4">
+            This course is ideal for students, professionals, and anyone
+            planning to take the IELTS exam for academic, immigration, or career
+            purposes. Whether you're a beginner or looking to refine your
+            skills, this course will help you achieve your goals.
+          </p>
+
+          <!-- Course Details -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="flex items-center gap-4">
+              <div class="p-3 bg-indigo-50 rounded-full">
+                <i class="fas fa-book-open text-primary text-xl"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-700">Course Type</h3>
+                <p class="text-gray-600">IELTS Preparation</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="p-3 bg-indigo-50 rounded-full">
+                <i class="fas fa-users text-primary text-xl"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-700">
+                  Age Interval
+                </h3>
+                <p class="text-gray-600">19+ Years</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="p-3 bg-indigo-50 rounded-full">
+                <i class="fas fa-clock text-primary text-xl"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-700">Duration</h3>
+                <p class="text-gray-600">12 Weeks</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="p-3 bg-indigo-50 rounded-full">
+                <i class="fas fa-calendar-alt text-primary text-xl"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-700">Schedule</h3>
+                <p class="text-gray-600">Mon, Wed, Fri - 6:00 PM to 8:00 PM</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Enroll Button -->
+          <div class="mt-8">
+            <button
+              class="w-full md:w-auto bg-primary text-white py-3 px-8 rounded-lg hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all flex items-center gap-2"
+            >
+              <i class="fas fa-check-circle"></i>
+              Enroll Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer style="background-color: rgba(37, 38, 65, 1)">
+      <div class="max-w-2xl mx-auto">
+        <div
+          class="flex py-12 justify-center text-white items-center px-20 sm:px-36"
+        >
+          <div class="relative">
+            <img src="img/logo-footer.png" width="350" height="350" />
+          </div>
+          <span
+            class="border-l border-gray-500 text-sm pl-5 py-2 font-semibold"
+          >
+            Your trusted language school
+          </span>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="text-center pb-16 pt-5">
+          <h2 class="text-gray-300 font-semibold text-xl mb-4">Contact Us</h2>
+          <form class="max-w-md mx-auto px-5 sm:px-0">
+            <input
+              type="text"
+              placeholder="Your Name"
+              class="w-full rounded-full py-2 pl-5 bg-transparent border border-gray-400 mb-3 text-white placeholder-gray-400 focus:outline-none focus:border-primary"
+            />
+            <input
+              type="email"
+              placeholder="Your Email"
+              class="w-full rounded-full py-2 pl-5 bg-transparent border border-gray-400 mb-3 text-white placeholder-gray-400 focus:outline-none focus:border-primary"
+            />
+            <textarea
+              placeholder="Your Message or Course Inquiry"
+              class="w-full rounded-2xl py-2 pl-5 bg-transparent border border-gray-400 mb-3 text-white placeholder-gray-400 focus:outline-none focus:border-primary"
+              rows="4"
+            ></textarea>
+            <button
+              type="submit"
+              class="text-white w-full bg-primary sm:w-auto mx-auto font-semibold px-5 py-2 rounded-full"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+
+        <!-- Social Media Links and Address -->
+        <div class="text-center pb-16 pt-5">
+          <div class="flex justify-center space-x-6 mb-4">
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white transition-colors duration-300"
+            >
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white transition-colors duration-300"
+            >
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white transition-colors duration-300"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white transition-colors duration-300"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+          <!-- <p class="text-gray-400 text-sm">
+              123 Language Street, City, Country | Email: info@palaceschool.com |
+              Phone: +123 456 7890
+            </p> -->
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

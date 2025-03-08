@@ -32,69 +32,134 @@
   </head>
   <body class="antialiased">
     <!-- navbar -->
-    <div x-data="{ open: false }" class="w-full text-gray-700 bg-cream">
-      <div
-        class="flex flex-col max-w-screen-xl px-8 mx-auto md:items-center md:justify-between md:flex-row"
-      >
-        <div class="flex flex-row items-center justify-between py-4">
-          <div class="relative md:mt-8">
-            <img src="./img/logo.png" height="150" width="150" />
-          </div>
-          <button
-            class="rounded-lg md:hidden focus:outline-none focus:shadow-outline"
-            @click="open = !open"
-          >
-            <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
-              <path
-                x-show="!open"
-                fill-rule="evenodd"
-                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
-                clip-rule="evenodd"
-              ></path>
-              <path
-                x-show="open"
-                fill-rule="evenodd"
-                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
-          </button>
-        </div>
-        <nav
-          :class="{ 'transform md:transform-none': !open, 'h-full': open }"
-          class="h-0 md:h-auto flex flex-col flex-grow md:items-center pb-4 md:pb-0 md:flex md:justify-end md:flex-row origin-top duration-300 scale-y-0"
-        >
-          <a
-            class="px-4 py-2 mt-2 text-sm bg-transparent rounded-lg md:mt-8 md:ml-4 hover:text-gray-900 focus:outline-none focus:shadow-outline"
-            href="#"
-            >Home</a
-          >
-          <a
-            class="px-4 py-2 mt-2 text-sm bg-transparent rounded-lg md:mt-8 md:ml-4 hover:text-gray-900 focus:outline-none focus:shadow-outline"
-            href="#"
-            >Courses</a
-          >
 
-          <a
-            class="px-4 py-2 mt-2 text-sm bg-transparent rounded-lg md:mt-8 md:ml-4 hover:text-gray-900 focus:outline-none focus:shadow-outline"
-            href="#"
-            >About Us</a
+    <div
+      class="relative h-screen w-full flex flex-col sm:flex-row items-center justify-center sm:justify-start text-center sm:text-left bg-cover bg-center"
+      style="
+        background-image: url(https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80);
+      "
+    >
+      <div
+        class="absolute top-0 right-0 bottom-0 left-0 bg-gray-900 opacity-75"
+      ></div>
+      <div
+        x-data="{ open: false, scrolled: false }"
+        @scroll.window="scrolled = (window.scrollY > 50)"
+        class="absolute w-full text-white top-0 z-10"
+      >
+        <div
+          :class="{ 'bg-white shadow-md': scrolled, 'bg-transparent': !scrolled }"
+          class="flex flex-col max-w-screen-xl px-8 mx-auto md:items-center md:justify-between md:flex-row transition-all duration-300"
+        >
+          <div class="flex flex-row items-center justify-between py-4">
+            <div>
+              <img src="./img/logo-footer.png" height="150" width="150" />
+            </div>
+            <button
+              class="rounded-lg md:hidden focus:outline-none focus:shadow-outline"
+              @click="open = !open"
+            >
+              <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+                <path
+                  x-show="!open"
+                  fill-rule="evenodd"
+                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+                  clip-rule="evenodd"
+                ></path>
+                <path
+                  x-show="open"
+                  fill-rule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <nav
+            :class="{ 'transform md:transform-none': !open, 'h-full': open }"
+            class="h-0 md:h-auto flex flex-col flex-grow text-white md:items-center pb-4 md:pb-0 md:flex md:justify-end md:flex-row origin-top duration-300 scale-y-0"
           >
-          <button
-            class="px-10 py-3 mt-2 text-sm text-center bg-primary text-white rounded-full md:mt-8 md:ml-4"
-            href="#"
-          >
-            Ask For Opinion
-          </button>
-        </nav>
+            <a
+              class="px-4 py-2 mt-2 text-sm bg-transparent rounded-lg md:mt-8 md:ml-4 hover:text-primary focus:outline-none focus:shadow-outline"
+              href="#"
+              >Home</a
+            >
+            <a
+              class="px-4 py-2 mt-2 text-sm bg-transparent rounded-lg md:mt-8 md:ml-4 hover:text-primary focus:outline-none focus:shadow-outline"
+              href="./Courses.html"
+              >Courses</a
+            >
+            <a
+              class="px-4 py-2 mt-2 text-sm bg-transparent rounded-lg md:mt-8 md:ml-4 hover:text-primary focus:outline-none focus:shadow-outline"
+              href="#"
+              >About Us</a
+            >
+            <button
+              class="px-10 py-3 mt-2 text-sm text-center bg-primary text-white rounded-full md:mt-8 md:ml-4"
+              href="#"
+            >
+              Ask For Opinion
+            </button>
+          </nav>
+        </div>
       </div>
+
+      <main class="px-8 sm:px-24 z-10 sm:w-2/3">
+        <div class="">
+          <h2
+            class="text-4xl tracking-tight leading-10 font-extrabold sm:text-5xl text-white sm:leading-none md:text-6xl"
+          >
+            Welcome to
+            <span class="text-primary">Palace of Languages</span>
+          </h2>
+          <p
+            class="mt-3 text-white sm:mt-5 sm:max-w-xl md:mt-5 text-lg font-light"
+          >
+            Unlock your potential with our diverse language courses. Whether
+            you're a beginner or advanced, we have the perfect course for you.
+          </p>
+          <div class="mt-5 sm:mt-8 sm:flex justify-start">
+            <div class="rounded-md shadow">
+              <a
+                href="#"
+                class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-primary hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
+              >
+                Explore Courses
+              </a>
+            </div>
+            <div class="mt-3 sm:mt-0 sm:ml-3">
+              <a
+                href="#"
+                class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-indigo-700 bg-indigo-100 hover:text-primary hover:bg-indigo-50 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-300 transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
+              >
+                Register
+              </a>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div class="text-white -mt-14 sm:-mt-24 lg:-mt-36 z-40 relative">
+      <svg
+        class="xl:h-40 xl:w-full"
+        data-name="Layer 1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1200 120"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M600,112.77C268.63,112.77,0,65.52,0,7.23V120H1200V7.23C1200,65.52,931.37,112.77,600,112.77Z"
+          fill="currentColor"
+        ></path>
+      </svg>
+      <div class="bg-white w-full h-20 -mt-px"></div>
     </div>
 
-    <div class="bg-cream">
+    <!-- <div class="bg-cream">
       <div
         class="max-w-screen-xl px-8 mx-auto flex flex-col lg:flex-row items-start"
       >
-        <!--Left Col-->
+     
         <div
           class="flex flex-col w-full lg:w-6/12 justify-center lg:pt-24 items-start text-center lg:text-left mb-5 md:mb-0"
         >
@@ -147,7 +212,7 @@
             </div>
           </div>
         </div>
-        <!--Right Col-->
+    
         <div class="w-full lg:w-6/12 lg:-mt-8 relative" id="girl">
           <img
             data-aos="fade-up"
@@ -155,7 +220,7 @@
             class="w-10/12 mx-auto 2xl:-mb-20"
             src="img/girl.png"
           />
-          <!-- calendar -->
+        
           <div
             data-aos="fade-up"
             data-aos-delay="300"
@@ -167,7 +232,7 @@
               src="img/calendar.svg"
             />
           </div>
-          <!-- red -->
+       
           <div
             data-aos="fade-up"
             data-aos-delay="400"
@@ -253,7 +318,7 @@
               </defs>
             </svg>
           </div>
-          <!-- ux class -->
+       
           <div
             data-aos="fade-up"
             data-aos-delay="500"
@@ -266,7 +331,7 @@
               alt=""
             />
           </div>
-          <!-- congrats -->
+   
           <div
             data-aos="fade-up"
             data-aos-delay="600"
@@ -296,25 +361,12 @@
         </svg>
         <div class="bg-white w-full h-20 -mt-px"></div>
       </div>
-    </div>
+    </div> -->
 
     <!-- container -->
     <div
-      class="container px-4 lg:px-8 mx-auto max-w-screen-xl text-gray-700 overflow-x-hidden"
+      class="container px-4 lg:px-8 pb-4 mx-auto max-w-screen-xl text-gray-700 overflow-x-hidden"
     >
-      <!-- trusted by
-		<div class="max-w-4xl mx-auto">
-			<h1 class="text-center mb-3 text-gray-400 font-medium">Trusted by 5,000+ Companies Worldwide</h1>
-			<div class="grid grid-cols-3 lg:grid-cols-6 gap-4 justify-items-center">
-				<img class="h-7" src="img/company/google.svg">
-				<img class="h-7" src="img/company/netflix.svg">
-				<img class="h-7" src="img/company/airbnb.svg">
-				<img class="h-7 transform translate-y-2" src="img/company/amazon.svg">
-				<img class="h-7" src="img/company/facebook.svg">
-				<img class="h-7" src="img/company/grab.svg">
-			</div>
-		</div> -->
-
       <!-- All-In-One Language Learning Platform. -->
       <div data-aos="flip-up" class="max-w-3xl mx-auto text-center mt-24">
         <h1 class="font-bold text-darken my-3 text-2xl">
@@ -727,7 +779,7 @@
           </div>
         </div>
       </div>
-      <div class="flex flex-col md:flex-row items-center md:space-x-10 mt-16">
+      <!-- <div class="flex flex-col md:flex-row items-center md:space-x-10 mt-16">
         <div data-aos="fade-right" class="md:w-1/2 lg:pl-14">
           <h1 class="text-darken font-semibold text-3xl lg:pr-56">
             <span class="text-primary">Tools</span> For Teachers And Learners
@@ -746,7 +798,7 @@
           class="md:w-1/2"
           src="img/girl-with-books.png"
         />
-      </div>
+      </div> -->
 
       <!-- One-on-One Discussions -->
       <div
@@ -864,8 +916,158 @@
         See more features
       </button>
 
+      <body class="antialiased sans-serif bg-gray-200 text-gray-600">
+        <div
+          class="my-10 md:my-24 container mx-auto flex flex-col shadow-sm overflow-hidden"
+          x-data="{ testimonialActive: 2 }"
+          x-cloak
+        >
+          <div
+            class="relative z-20 text-center text-darken text-2xl font-semibold my-8"
+          >
+            What Our
+            <span class="text-primary">Students</span>
+            Say About Us!
+          </div>
+          <!-- Right Section with Testimonials -->
+          <div class="bg-gray-100 rounded-xl">
+            <div class="flex flex-col h-full relative">
+              <!-- Decorative SVG -->
+              <div class="absolute top-0 left-0 mt-3 ml-4 md:mt-5 md:ml-12">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="text-indigo-200 fill-current w-12 h-12 md:w-16 md:h-16"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M6.5 10c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.114-.308.292-.575.469-.844.148-.291.409-.488.601-.737.201-.242.475-.403.692-.604.213-.21.492-.315.714-.463.232-.133.434-.28.65-.35.208-.086.39-.16.539-.222.302-.125.474-.197.474-.197L9.758 4.03c0 0-.218.052-.597.144C8.97 4.222 8.737 4.278 8.472 4.345c-.271.05-.56.187-.882.312C7.272 4.799 6.904 4.895 6.562 5.123c-.344.218-.741.4-1.091.692C5.132 6.116 4.723 6.377 4.421 6.76c-.33.358-.656.734-.909 1.162C3.219 8.33 3.02 8.778 2.81 9.221c-.19.443-.343.896-.468 1.336-.237.882-.343 1.72-.384 2.437-.034.718-.014 1.315.028 1.747.015.204.043.402.063.539.017.109.025.168.025.168l.026-.006C2.535 17.474 4.338 19 6.5 19c2.485 0 4.5-2.015 4.5-4.5S8.985 10 6.5 10zM17.5 10c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.114-.308.292-.575.469-.844.148-.291.409-.488.601-.737.201-.242.475-.403.692-.604.213-.21.492-.315.714-.463.232-.133.434-.28.65-.35.208-.086.39-.16.539-.222.302-.125.474-.197.474-.197L20.758 4.03c0 0-.218.052-.597.144-.191.048-.424.104-.689.171-.271.05-.56.187-.882.312-.317.143-.686.238-1.028.467-.344.218-.741.4-1.091.692-.339.301-.748.562-1.05.944-.33.358-.656.734-.909 1.162C14.219 8.33 14.02 8.778 13.81 9.221c-.19.443-.343.896-.468 1.336-.237.882-.343 1.72-.384 2.437-.034.718-.014 1.315.028 1.747.015.204.043.402.063.539.017.109.025.168.025.168l.026-.006C13.535 17.474 15.338 19 17.5 19c2.485 0 4.5-2.015 4.5-4.5S19.985 10 17.5 10z"
+                  />
+                </svg>
+              </div>
+
+              <!-- Testimonials -->
+              <div class="h-full relative z-10 mt-12">
+                <div x-show.immediate="testimonialActive === 1">
+                  <p
+                    class="text-gray-600 serif font-normal italic text-center px-6 py-6 md:px-16 md:py-10 text-xl md:text-2xl"
+                    x-show.transition="testimonialActive == 1"
+                  >
+                    Palace of Languages has transformed my learning experience!
+                    The teachers are incredibly supportive, and the curriculum
+                    is well-structured. I’ve improved my language skills
+                    significantly in just a few months.
+                  </p>
+                </div>
+
+                <div x-show.immediate="testimonialActive === 2">
+                  <p
+                    class="text-gray-600 serif font-normal text-center italic px-6 py-6 md:px-16 md:py-10 text-xl md:text-2xl"
+                    x-show.transition="testimonialActive == 2"
+                  >
+                    I love the interactive classes and the friendly environment
+                    at Palace of Languages. The small class sizes ensure
+                    personalized attention, and the cultural activities make
+                    learning so much fun!
+                  </p>
+                </div>
+
+                <div x-show.immediate="testimonialActive === 3">
+                  <p
+                    class="text-gray-600 serif font-normal text-center italic px-6 py-6 md:px-16 md:py-10 text-xl md:text-2xl"
+                    x-show.transition="testimonialActive == 3"
+                  >
+                    The online resources and dedicated teachers at Palace of
+                    Languages have made language learning accessible and
+                    enjoyable. I highly recommend this school to anyone looking
+                    to master a new language.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Student Avatars -->
+              <div class="flex my-4 justify-center items-center">
+                <button
+                  @click.prevent="testimonialActive = 1"
+                  class="text-center font-bold shadow-xs focus:outline-none focus:shadow-outline inline-block rounded-full mx-2"
+                  :class="{'h-12 w-12 opacity-25 bg-indigo-300 text-gray-600': testimonialActive != 1, 'h-16 w-16 opacity-100 bg-indigo-600 text-white': testimonialActive == 1 }"
+                >
+                  AS
+                </button>
+                <button
+                  @click.prevent="testimonialActive = 2"
+                  class="text-center font-bold shadow-xs focus:outline-none focus:shadow-outline h-16 w-16 inline-block bg-indigo-600 rounded-full mx-2"
+                  :class="{'h-12 w-12 opacity-25 bg-indigo-300 text-gray-600': testimonialActive != 2, 'h-16 w-16 opacity-100 bg-indigo-600 text-white': testimonialActive == 2 }"
+                >
+                  MJ
+                </button>
+                <button
+                  @click.prevent="testimonialActive = 3"
+                  class="text-center font-bold shadow-xs focus:outline-none focus:shadow-outline h-12 w-12 inline-block bg-indigo-600 rounded-full mx-2"
+                  :class="{'h-12 w-12 opacity-25 bg-indigo-300 text-gray-600': testimonialActive != 3, 'h-16 w-16 opacity-100 bg-indigo-600 text-white': testimonialActive == 3 }"
+                >
+                  RK
+                </button>
+              </div>
+
+              <!-- Student Names and Roles -->
+              <div class="flex justify-center px-6 pt-2 pb-6 md:py-6">
+                <div class="text-center" x-show="testimonialActive == 1">
+                  <h2
+                    class="text-sm md:text-base font-bold text-gray-700 leading-tight"
+                  >
+                    Alice Smith
+                  </h2>
+                  <small class="text-gray-500 text-xs md:text-sm truncate"
+                    >French Language Student</small
+                  >
+                </div>
+
+                <div class="text-center" x-show="testimonialActive == 2">
+                  <h2
+                    class="text-sm md:text-base font-bold text-gray-700 leading-tight"
+                  >
+                    Michael Johnson
+                  </h2>
+                  <small class="text-gray-500 text-xs md:text-sm truncate"
+                    >Spanish Language Student</small
+                  >
+                </div>
+
+                <div class="text-center" x-show="testimonialActive == 3">
+                  <h2
+                    class="text-sm md:text-base font-bold text-gray-700 leading-tight"
+                  >
+                    Rachel Kim
+                  </h2>
+                  <small class="text-gray-500 text-xs md:text-sm truncate"
+                    >German Language Student</small
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Navigation Buttons -->
+            <!-- <div class="w-full">
+              <div class="mr-4 mb-4 hidden md:block mx-auto">
+                <button
+                  class="rounded-l-full border-r bg-gray-100 text-gray-500 focus:outline-none hover:text-indigo-500 font-bold w-12 h-10"
+                  x-on:click="testimonialActive = testimonialActive === 1 ? 3 : testimonialActive - 1"
+                >
+                  &#8592;
+                </button>
+                <button
+                  class="rounded-r-full bg-gray-100 text-gray-500 focus:outline-none hover:text-indigo-500 font-bold w-12 h-10"
+                  x-on:click="testimonialActive = testimonialActive >= 3 ? 1 : testimonialActive + 1"
+                >
+                  &#8594;
+                </button>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </body>
+
       <!-- TESTIMONIAL -->
-      <div
+      <!-- <div
         class="mt-24 flex flex-col-reverse md:flex-row items-start md:space-x-10"
       >
         <div data-aos="zoom-in-right" class="md:w-5/12">
@@ -911,10 +1113,10 @@
         <div data-aos="zoom-in-left" class="md:w-7/12">
           <img class="md:w-10/12 mx-auto" src="img/girl-with-books.png" />
         </div>
-      </div>
+      </div> -->
 
       <!-- Latest News and Resources -->
-      <div data-aos="zoom-in" class="mt-16 text-center">
+      <!-- <div data-aos="zoom-in" class="mt-16 text-center">
         <h1 class="text-darken text-2xl font-semibold">
           Explore Our Language Courses
         </h1>
@@ -1023,10 +1225,20 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
     <!-- .container -->
-
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-center mb-3 text-gray-400 font-medium">Trusted by</h1>
+      <div class="grid grid-cols-3 lg:grid-cols-6 gap-4 justify-items-center">
+        <img class="h-7" src="img/company/google.svg" />
+        <img class="h-7" src="img/company/netflix.svg" />
+        <img class="h-7" src="img/company/airbnb.svg" />
+        <img class="h-7 transform translate-y-2" src="img/company/amazon.svg" />
+        <img class="h-7" src="img/company/facebook.svg" />
+        <img class="h-7" src="img/company/grab.svg" />
+      </div>
+    </div>
     <footer class="mt-32" style="background-color: rgba(37, 38, 65, 1)">
       <div class="max-w-2xl mx-auto">
         <div
