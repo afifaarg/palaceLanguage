@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Palace School of Languages</title>
+    <!-- Alpine -->
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+    ></script>
+    <script
+      nomodule
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.min.js"
+      defer
+    ></script>
+    <!-- Tailwind CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom style -->
+    <link rel="stylesheet" href="css/output.css" />
+    <!-- Poppins font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body class="antialiased font-poppins">
+    <!-- Navigation Bar -->
+    <div
+      x-data="{ open: false, scrolled: false }"
+      class="fixed w-full bg-[#252641] text-white top-0 z-20 transition-all duration-300"
+      :class="{ 'bg-white shadow-lg': open, 'bg-[#252641]': !open && !scrolled, 'bg-[#252641] shadow-lg': scrolled }"
+    >
+      <div
+        class="flex flex-col max-w-screen-xl px-8 mx-auto md:items-center md:justify-between md:flex-row"
+      >
+        <div class="flex flex-row items-center justify-between py-4">
+          <div>
+            <img src="./img/logo-footer.png" height="150" width="150" />
+          </div>
+          <button
+            class="rounded-lg md:hidden focus:outline-none focus:shadow-outline"
+            @click="open = !open"
+          >
+            <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+              <path
+                x-show="!open"
+                fill-rule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+                clip-rule="evenodd"
+              ></path>
+              <path
+                x-show="open"
+                fill-rule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <nav
+          :class="{ 'h-auto': open, 'h-0': !open }"
+          class="flex flex-col flex-grow text-white md:items-center pb-4 md:pb-0 md:flex md:justify-end md:flex-row origin-top duration-300 transition-all overflow-hidden md:overflow-visible"
+        >
+          <!-- Mobile Menu Background with Blur -->
+          <div
+            x-show="open"
+            class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm md:hidden"
+            @click="open = false"
+          ></div>
+          <!-- Mobile Menu Content -->
+          <div
+            x-show="open"
+            class="fixed top-0 left-0 w-64 h-full bg-white bg-opacity-90 backdrop-blur-md shadow-lg z-30 md:hidden"
+          >
+            <div class="p-6">
+              <a
+                class="block px-4 py-2 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
+                href="./index.html"
+                >Home</a
+              >
+              <a
+                class="block px-4 py-2 mt-2 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
+                href="./Courses.html"
+                >Courses</a
+              >
+              <a
+                class="block px-4 py-2 mt-2 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
+                href="#"
+                >About Us</a
+              >
+              <button
+                class="block w-full px-4 py-2 mt-2 text-sm text-center bg-primary text-white rounded-full hover:bg-indigo-700"
+                href="#"
+              >
+                Ask For Opinion
+              </button>
+            </div>
+          </div>
+          <!-- Desktop Menu Content -->
+          <div class="hidden md:flex">
+            <a
+              class="px-4 py-2 mt-2 text-sm bg-transparent rounded-lg md:mt-8 md:ml-4 hover:text-primary focus:outline-none focus:shadow-outline"
+              href="./index.html"
+              >Home</a
+            >
+            <a
+              class="px-4 py-2 mt-2 text-sm bg-transparent rounded-lg md:mt-8 md:ml-4 hover:text-primary focus:outline-none focus:shadow-outline"
+              href="./Courses.html"
+              >Courses</a
+            >
+            <a
+              class="px-4 py-2 mt-2 text-sm bg-transparent rounded-lg md:mt-8 md:ml-4 hover:text-primary focus:outline-none focus:shadow-outline"
+              href="#"
+              >About Us</a
+            >
+            <button
+              class="px-10 py-3 mt-2 text-sm text-center bg-primary text-white rounded-full md:mt-8 md:ml-4 hover:bg-indigo-700"
+              href="#"
+            >
+              Ask For Opinion
+            </button>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Scroll Listener -->
+    <script>
+      document.addEventListener("alpine:init", () => {
+        Alpine.data("scrollHandler", () => ({
+          scrolled: false,
+          init() {
+            window.addEventListener("scroll", () => {
+              this.scrolled = window.scrollY > 64; // Change 64 to the height you want (e.g., h-64)
+            });
+          },
+        }));
+      });
+    </script>
+
+    <!-- Hero Section -->
+    <div
+      class="relative h-64 md:h-96 bg-cover bg-center"
+      style="background-image: url('./img/Rectangle\ 21.png')"
+    >
+      <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+      <div class="relative z-10 flex items-center justify-center h-full">
+        <h1 class="text-4xl md:text-6xl font-bold text-white text-center">
+          Spanish Language Workshop Recap
+        </h1>
+      </div>
+    </div>
+
+    <!-- Breadcrumbs -->
+    <div class="container mx-auto px-4 py-6">
+      <nav class="text-sm">
+        <a href="#" class="text-gray-500">Home</a> /
+        <a href="#" class="text-gray-500">Events</a> /
+        <span class="text-darken">Spanish Language Workshop Recap</span>
+      </nav>
+    </div>
+
+    <!-- Social Media Icons -->
+    <div class="container mx-auto px-4 py-6 flex space-x-4">
+      <a href="#" class="text-gray-500 hover:text-darken">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="#" class="text-gray-500 hover:text-darken">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="#" class="text-gray-500 hover:text-darken">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+
+    <!-- Event Content Section -->
+    <div class="container mx-auto px-4 py-12">
+      <!-- Event Overview -->
+      <div class="text-center mb-16">
+        <span
+          class="bg-primary text-white font-semibold px-4 py-px text-sm rounded-full"
+        >
+          RECAP
+        </span>
+        <h1 class="text-gray-800 font-semibold my-3 text-2xl">
+          Spanish Language Workshop: A Day of Learning and Fun
+        </h1>
+        <p class="text-gray-500 mb-3">
+          On October 15, 2023, Palace of Language hosted an immersive Spanish
+          Language Workshop. Here's how it went!
+        </p>
+      </div>
+
+      <!-- Zigzag Layout Sections -->
+      <!-- Section 1: Image Right, Text Left -->
+      <div class="flex flex-col lg:flex-row items-center mb-16">
+        <div class="lg:w-1/2 lg:pr-10">
+          <h2 class="text-gray-800 font-semibold my-3 text-xl">
+            Interactive Learning Sessions
+          </h2>
+          <p class="text-gray-500 mb-3">
+            The workshop began with interactive sessions led by our expert
+            instructors. Participants learned basic Spanish phrases, grammar,
+            and pronunciation through engaging activities.
+          </p>
+          <p class="text-gray-500">
+            <strong>Highlights:</strong> Role-playing exercises, group
+            discussions, and real-world conversation practice.
+          </p>
+        </div>
+        <div class="lg:w-1/2 mt-8 lg:mt-0">
+          <img
+            class="rounded-xl w-full"
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80"
+            alt="Workshop Session"
+          />
+        </div>
+      </div>
+
+      <!-- Section 2: Image Left, Text Right -->
+      <div class="flex flex-col lg:flex-row items-center mb-16">
+        <div class="lg:w-1/2 lg:order-2 lg:pl-10">
+          <h2 class="text-gray-800 font-semibold my-3 text-xl">
+            Exploring Spanish Culture
+          </h2>
+          <p class="text-gray-500 mb-3">
+            The event also included a deep dive into Spanish culture.
+            Participants enjoyed traditional Spanish music, dance performances,
+            and a tasting session of authentic Spanish cuisine.
+          </p>
+          <p class="text-gray-500">
+            <strong>Highlights:</strong> Flamenco dance demonstration, paella
+            cooking showcase, and a Q&A session with native speakers.
+          </p>
+        </div>
+        <div class="lg:w-1/2 lg:order-1 mt-8 lg:mt-0">
+          <img
+            class="rounded-xl w-full"
+            src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            alt="Cultural Activities"
+          />
+        </div>
+      </div>
+
+      <!-- Section 3: Image Right, Text Left -->
+      <div class="flex flex-col lg:flex-row items-center mb-16">
+        <div class="lg:w-1/2 lg:pr-10">
+          <h2 class="text-gray-800 font-semibold my-3 text-xl">
+            Hands-On Language Practice
+          </h2>
+          <p class="text-gray-500 mb-3">
+            Participants engaged in hands-on activities to practice their new
+            language skills. From writing exercises to conversational games,
+            everyone had a chance to shine.
+          </p>
+          <p class="text-gray-500">
+            <strong>Highlights:</strong> Collaborative storytelling, language
+            games, and personalized feedback from instructors.
+          </p>
+        </div>
+        <div class="lg:w-1/2 mt-8 lg:mt-0">
+          <img
+            class="rounded-xl w-full"
+            src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            alt="Hands-On Practice"
+          />
+        </div>
+      </div>
+
+      <!-- Testimonials -->
+      <div class="text-center mb-16">
+        <h2 class="text-gray-800 font-semibold my-3 text-2xl">
+          What Participants Said
+        </h2>
+        <div
+          class="flex flex-col lg:flex-row justify-center space-y-8 lg:space-y-0 lg:space-x-8"
+        >
+          <div class="lg:w-1/3 bg-gray-50 p-6 rounded-lg">
+            <p class="text-gray-500 italic">
+              "The workshop was incredibly engaging! I learned so much in just
+              one day."
+            </p>
+            <p class="text-gray-800 font-semibold mt-3">- Maria S.</p>
+          </div>
+          <div class="lg:w-1/3 bg-gray-50 p-6 rounded-lg">
+            <p class="text-gray-500 italic">
+              "The cultural activities were my favorite part. It felt like I was
+              in Spain!"
+            </p>
+            <p class="text-gray-800 font-semibold mt-3">- John D.</p>
+          </div>
+          <div class="lg:w-1/3 bg-gray-50 p-6 rounded-lg">
+            <p class="text-gray-500 italic">
+              "The instructors were amazing. I can't wait for the next event!"
+            </p>
+            <p class="text-gray-800 font-semibold mt-3">- Sarah L.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Call to Action -->
+      <div class="text-center">
+        <h2 class="text-gray-800 font-semibold my-3 text-2xl">
+          Join Us for Future Events!
+        </h2>
+        <p class="text-gray-500 mb-6">
+          Stay tuned for more exciting language workshops and cultural events at
+          Palace of Language.
+        </p>
+        <a
+          href="#"
+          class="text-primary underline px-6 py-3 font-semibold hover:shadow-lg transition-all"
+        >
+          Explore Upcoming Events
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-32" style="background-color: rgba(37, 38, 65, 1)">
+      <div class="max-w-2xl mx-auto">
+        <div
+          class="flex py-12 justify-center text-white items-center px-20 sm:px-36"
+        >
+          <div class="relative">
+            <img src="img/logo-footer.png" width="350" height="350" />
+          </div>
+          <span
+            class="border-l border-gray-500 text-sm pl-5 py-2 font-semibold"
+          >
+            Your trusted language school
+          </span>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="text-center pb-16 pt-5">
+          <h2 class="text-gray-300 font-semibold text-xl mb-4">Contact Us</h2>
+          <form class="max-w-md mx-auto px-5 sm:px-0">
+            <input
+              type="text"
+              placeholder="Your Name"
+              class="w-full rounded-full py-2 pl-5 bg-transparent border border-gray-400 mb-3 text-white placeholder-gray-400 focus:outline-none focus:border-primary"
+            />
+            <input
+              type="email"
+              placeholder="Your Email"
+              class="w-full rounded-full py-2 pl-5 bg-transparent border border-gray-400 mb-3 text-white placeholder-gray-400 focus:outline-none focus:border-primary"
+            />
+            <textarea
+              placeholder="Your Message or Course Inquiry"
+              class="w-full rounded-2xl py-2 pl-5 bg-transparent border border-gray-400 mb-3 text-white placeholder-gray-400 focus:outline-none focus:border-primary"
+              rows="4"
+            ></textarea>
+            <button
+              type="submit"
+              class="text-white w-full bg-primary sm:w-auto mx-auto font-semibold px-5 py-2 rounded-full"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+
+        <!-- Social Media Links and Address -->
+        <div class="text-center pb-16 pt-5">
+          <div class="flex justify-center space-x-6 mb-4">
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white transition-colors duration-300"
+            >
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white transition-colors duration-300"
+            >
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white transition-colors duration-300"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white transition-colors duration-300"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Swiper JS for Carousel -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper(".swiper-container", {
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+    </script>
+  </body>
+</html>
